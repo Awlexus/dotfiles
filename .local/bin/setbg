@@ -1,0 +1,6 @@
+#!/bin/sh
+
+WALLPAPER_DIR=~/Pictures/Wallpapers
+
+file=$(ls $WALLPAPER_DIR | shuf -n 1)
+xwallpaper --zoom $WALLPAPER_DIR/$file
