@@ -95,7 +95,7 @@ zstyle ":completion:*:commands" rehash 1
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -111,6 +111,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export ERL_AFLAGS="-kernel shell_history enabled"
 alias v='nvim'
+alias du="du -sh"
 
 # Elixir aliases
 alias i='iex'
@@ -128,8 +129,10 @@ alias mdc='mix deps.compile'
 alias mdgc='mix do deps.get, deps.compile'
 alias mec='mix ecto.create'
 
-# Zsh
+# Some config files
 alias zshrc='nvim ~/.zshrc'
+alias vimrc='nvim ~/.config/nvim/init.vim'
+alias i3_config='nvim ~/.config/i3/config'
 
 # Postgres
 alias posrepl='sudo -u postgres psql'
