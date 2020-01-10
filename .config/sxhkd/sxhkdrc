@@ -10,7 +10,7 @@ super + r
 super + m
 	$TERMINAL -e ncmpcpp
 super + i
-	$TERMINAL -e htop
+	$TERMINAL -e gotop
 super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
 super + w
@@ -99,10 +99,10 @@ super + F1
 # F2 is restart in i3 right now.
 # Change display
 super + F3
-	displayselect
+	change_brightness -15
 # Hibernate
 super + F4
-	prompt 'Hibernate computer?' 'sudo systemctl suspend'
+	change_brightness +15
 # Restart/rescan wifi/eth networks
 super + F5
 	sudo -A systemctl restart NetworkManager
