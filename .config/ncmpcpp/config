@@ -543,3 +543,8 @@ statusbar_time_color = cyan:b
 #
 #active_window_border = red
 #
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30"
+visualizer_in_stereo = "yes"
+visualizer_look = "+|"
