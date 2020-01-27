@@ -50,6 +50,11 @@ augroup END
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+" ctrlP
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '(\.(git)|node_modules|deps|_build)$'
+	\ }
+
 " Emmet
 let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_install_global = 0
