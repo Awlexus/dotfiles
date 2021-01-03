@@ -25,8 +25,6 @@ Plug 'slashmili/alchemist.vim'
 " Flutter
 Plug 'thosakwe/vim-flutter'
 
-" Suggestions
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Rust
 Plug 'rust-lang/rust.vim'
 
@@ -38,9 +36,8 @@ noremap <c-k> <c-w><c-k>
 noremap <c-j> <c-w><c-j>
 
 :set noet ci pi sts=0 shiftwidth=2 tabstop=2
-
 " General configs
-"set clipboard=unnamedplus
+set clipboard=unnamedplus
 set relativenumber number
 let mapleader =","
 
@@ -77,4 +74,3 @@ map <leader>p :NERDTreeFind<CR>
 
 " Tagbar
 map <leader>m :TagbarToggle<CR>
-

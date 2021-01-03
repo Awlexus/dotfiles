@@ -10,12 +10,13 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -83,10 +84,12 @@ plugins=(
   postgres
   stack
   sudo
+	systemd
   vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
+zstyle ":completion:*:commands" rehash 1
 
 # User configuration
 
@@ -113,32 +116,42 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias du="du -sh"
 alias v="nvim"
 alias vim="nvim"
 alias c="code ."
-alias zshrc="$EDITOR ~/.zshrc"
-alias profile="$EDITOR ~/.profile"
-alias vimrc="$EDITOR ~/.config/nvim/init.vim"
-alias awesomerc="$EDITOR ~/.config/awesome/rc.lua"
+
+# Some config files
 alias alacrittyrc="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias awesomerc="$EDITOR ~/.config/awesome/rc.lua"
+alias i3_config="$EDITOR ~/.config/i3/config"
+alias profile="$EDITOR ~/.profile"
 alias spectrerc="$EDITOR ~/.config/spectrwm/spectrwm.conf"
+alias vimrc="$EDITOR ~/.config/nvim/init.vim"
+alias zshrc="$EDITOR ~/.zshrc"
+
 
 # Elixir 
 alias i="iex"
 alias ism="iex -S mix"
 alias ismps="iex -S mix phx.server"
-alias mdg="mix deps.get"
-alias mer="mix do ecto.drop, ecto.create, ecto.migrate, run priv/repo/seeds.exs"
-alias mpr="mix phx.routes"
 alias mc="mix compile"
 alias mcf="mix compile --force"
+alias mdc='mix deps.compile'
+alias mdg="mix deps.get"
+alias mdgc='mix do deps.get, deps.compile'
+alias mec='mix ecto.create'
+alias megm="mix ecto.gen.migration"
+alias mem="mix ecto.migrate"
+alias mer="mix do ecto.drop, ecto.create, ecto.migrate, run priv/repo/seeds.exs"
+alias merb="mix ecto.rollback"
+alias merbn='mix ecto.rollback -n'
+alias mert="MIX_ENV=test mix do ecto.drop, ecto.create, ecto.migrate"
+alias mpr="mix phx.routes"
 alias mt="mix test"
 alias mtf="mix test --failed"
-alias mem="mix ecto.migrate"
-alias megm="mix ecto.gen.migration"
-alias merb="mix ecto.rollback"
-alias mert="MIX_ENV=test mix do ecto.drop, ecto.create, ecto.migrate"
+
+
 
 # Git
 alias gc="git checkout"
@@ -160,3 +173,9 @@ function issue() {
 # AI
 alias drun='docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx'
 alias sdrun='sudo docker run -it --network=host --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size 16G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $HOME/dockerx:/dockerx'
+
+# Postgres
+alias posrepl='sudo -u postgres psql'
+
+# Dotfile helper
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree='$HOME'"
